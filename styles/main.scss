@@ -1,0 +1,312 @@
+@import "../utils/variables";
+
+html, body {
+    height: 100%;
+}
+
+* {
+    transition: .4s;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: $-f-red;
+    font-weight: 700;
+    font-size: 14px;
+    background: no-repeat url(../images/bg-stars.svg), linear-gradient($-c-vdark-blue, #261e30);
+    //Hide Scrollbar
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+header {
+    padding: 140px 40px 60px;
+    h1 {
+        margin: 0;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: $-c-white;
+        letter-spacing: 5px;
+        text-align: center;
+    }
+}
+
+main {
+    padding: 0 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    gap: 15px;
+    justify-content: center;
+    .swatch {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        .card {
+            position: relative;
+            height: 35px;
+            border-radius: 5px;
+            width: 70px;
+            overflow: hidden;
+            background: $-c-desat-blue;
+            span {
+                color: $-c-soft-red;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 36px;
+            }
+        }
+        .card-behind {
+            position: absolute;
+            top: 0;
+            filter: brightness(75%);
+            span {
+                bottom: -24px;
+            }
+        }
+        .card-top {
+            transform-origin: bottom center;
+            filter: brightness(75%);
+            span {
+                bottom: -24px;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: -3px;
+                left: -3px;
+                width: 6px;
+                height: 6px;
+                background: $-c-vdark-blue;
+                z-index: 1;
+                border-radius: 50%;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -3px;
+                right: -3px;
+                width: 6px;
+                height: 6px;
+                background: $-c-vdark-blue;
+                z-index: 1;
+                border-radius: 50%;
+            }
+        }
+        .card-bottom { 
+            transform-origin: top center;
+            margin-bottom: 15px;
+            position: relative;
+            box-shadow: 0px -10px 20px -30px #000000;
+            span {
+                top: -24px;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: -3px;
+                left: -3px;
+                width: 6px;
+                height: 6px;
+                background: $-c-vdark-blue;
+                z-index: 1;
+                border-radius: 50%;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: -3px;
+                right: -3px;
+                width: 6px;
+                height: 6px;
+                background: $-c-vdark-blue;
+                z-index: 1;
+                border-radius: 50%;
+            }
+        }
+        .card-behind-bottom {
+            position: absolute;
+            bottom: 24px;
+            span {
+                top: -24px;
+            }
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70px;
+            height: 75px;
+            background: $-c-vdark-blue;
+            z-index: -1;
+            border-radius: 10px;
+        }
+        .swatch-title {
+            font-size: 7px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: $-c-gray-blue;
+            text-align: center;
+        }
+        .animate-flip-top {
+            animation: flip-top 0.2s;
+        }
+        .animate-flip-bottom {
+            animation: flip-bottom 0.2s 0.2s;
+        }
+    }
+}
+
+footer {
+    background: calc(100% + 150px) / cover no-repeat url(../images/pattern-hills.svg);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 150px;
+    width: 100%;
+    .social {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        svg {
+            transition: 0.1s !important;
+            cursor: pointer;
+            margin: 0 15px;
+            fill: $-c-gray-blue;
+           &:hover {
+               fill: $-c-soft-red;
+           } 
+        }
+    }
+    .attribution {
+        position: absolute;
+        bottom: 5px;
+        right: 0;
+        width: 100%;
+        font-size: 11px;
+        text-align: center;
+        color: $-c-gray-blue;
+        a {
+            color: $-c-white;
+            text-decoration: none;
+            &:hover {
+                color: $-c-soft-red;
+            }
+          }
+    }
+}
+
+@keyframes flip-top {
+    from {
+        transform: rotateX(0deg);
+    } to {
+        transform: rotateX(90deg);
+    }
+}
+
+@keyframes flip-bottom {
+    from {
+        transform: rotateX(-90deg);
+    } to {
+        transform: rotateX(0deg);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        padding: 135px 0 100px;
+        h1 {
+            font-size: 22px;
+            letter-spacing: 0.35em;
+        }
+    }
+    main {
+        grid-template-columns: repeat(4, 160px);
+        gap: 15px;
+        justify-content: center;
+        gap: 35px;
+        .swatch {
+            .card {
+                border-radius: 10px;
+                width: 150px;
+                height: 75px;
+                span {
+                    font-size: 80px;
+                }
+            }
+            .card-behind {
+                span {
+                    bottom: -52px;
+                }
+            }
+            .card-top {
+                span {
+                    bottom: -52px;
+                }
+                &::before {
+                    bottom: -6px;
+                    left: -6px;
+                    width: 12px;
+                    height: 12px;
+                }
+                &::after {
+                    bottom: -6px;
+                    right: -6px;
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+            .card-behind-bottom {
+                bottom: 44px;
+                span {
+                    top: -52px;
+                }
+            }
+            .card-bottom {
+                margin: 0 0 25px;
+                span {
+                    top: -52px;
+                }
+                &::before {
+                    top: -6px;
+                    left: -6px;
+                    width: 12px;
+                    height: 12px;
+                }
+                &::after {
+                    top: -6px;
+                    right: -6px;
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+            .swatch-title {
+                font-size: 15px;
+                letter-spacing: 5px;
+            }
+            &::after {
+                left: 5px;
+                top: 10px;
+                height: 150px;
+                width: 150px;
+            }
+        }
+    }
+    footer {
+        background: 0 / cover no-repeat url(../images/pattern-hills.svg);
+        height: 200px;
+        .social {
+            bottom: 75px;
+        }
+    }
+}

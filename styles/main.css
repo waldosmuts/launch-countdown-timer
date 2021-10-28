@@ -1,0 +1,389 @@
+html, body {
+  height: 100%;
+}
+
+* {
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  background: no-repeat url(../images/bg-stars.svg), -webkit-gradient(linear, left top, left bottom, from(#191a24), to(#261e30));
+  background: no-repeat url(../images/bg-stars.svg), linear-gradient(#191a24, #261e30);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  padding: 140px 40px 60px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+main {
+  padding: 0 25px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (70px)[4];
+      grid-template-columns: repeat(4, 70px);
+  gap: 15px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .swatch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+main .swatch .card {
+  position: relative;
+  height: 35px;
+  border-radius: 5px;
+  width: 70px;
+  overflow: hidden;
+  background: #343650;
+}
+
+main .swatch .card span {
+  color: #fb6087;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 36px;
+}
+
+main .swatch .card-behind {
+  position: absolute;
+  top: 0;
+  -webkit-filter: brightness(75%);
+          filter: brightness(75%);
+}
+
+main .swatch .card-behind span {
+  bottom: -24px;
+}
+
+main .swatch .card-top {
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  -webkit-filter: brightness(75%);
+          filter: brightness(75%);
+}
+
+main .swatch .card-top span {
+  bottom: -24px;
+}
+
+main .swatch .card-top::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: -3px;
+  width: 6px;
+  height: 6px;
+  background: #191a24;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+main .swatch .card-top::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  background: #191a24;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+main .swatch .card-bottom {
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  margin-bottom: 15px;
+  position: relative;
+  -webkit-box-shadow: 0px -10px 20px -30px #000000;
+          box-shadow: 0px -10px 20px -30px #000000;
+}
+
+main .swatch .card-bottom span {
+  top: -24px;
+}
+
+main .swatch .card-bottom::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 6px;
+  height: 6px;
+  background: #191a24;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+main .swatch .card-bottom::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  background: #191a24;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+main .swatch .card-behind-bottom {
+  position: absolute;
+  bottom: 24px;
+}
+
+main .swatch .card-behind-bottom span {
+  top: -24px;
+}
+
+main .swatch::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 75px;
+  background: #191a24;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+main .swatch .swatch-title {
+  font-size: 7px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8486a9;
+  text-align: center;
+}
+
+main .swatch .animate-flip-top {
+  -webkit-animation: flip-top 0.2s;
+          animation: flip-top 0.2s;
+}
+
+main .swatch .animate-flip-bottom {
+  -webkit-animation: flip-bottom 0.2s 0.2s;
+          animation: flip-bottom 0.2s 0.2s;
+}
+
+footer {
+  background: calc(100% + 150px)/cover no-repeat url(../images/pattern-hills.svg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 150px;
+  width: 100%;
+}
+
+footer .social {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .social svg {
+  -webkit-transition: 0.1s !important;
+  transition: 0.1s !important;
+  cursor: pointer;
+  margin: 0 15px;
+  fill: #8486a9;
+}
+
+footer .social svg:hover {
+  fill: #fb6087;
+}
+
+footer .attribution {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  width: 100%;
+  font-size: 11px;
+  text-align: center;
+  color: #8486a9;
+}
+
+footer .attribution a {
+  color: white;
+  text-decoration: none;
+}
+
+footer .attribution a:hover {
+  color: #fb6087;
+}
+
+@-webkit-keyframes flip-top {
+  from {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  to {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+}
+
+@keyframes flip-top {
+  from {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  to {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+}
+
+@-webkit-keyframes flip-bottom {
+  from {
+    -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+  }
+  to {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@keyframes flip-bottom {
+  from {
+    -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+  }
+  to {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    padding: 135px 0 100px;
+  }
+  header h1 {
+    font-size: 22px;
+    letter-spacing: 0.35em;
+  }
+  main {
+    -ms-grid-columns: (160px)[4];
+        grid-template-columns: repeat(4, 160px);
+    gap: 15px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 35px;
+  }
+  main .swatch .card {
+    border-radius: 10px;
+    width: 150px;
+    height: 75px;
+  }
+  main .swatch .card span {
+    font-size: 80px;
+  }
+  main .swatch .card-behind span {
+    bottom: -52px;
+  }
+  main .swatch .card-top span {
+    bottom: -52px;
+  }
+  main .swatch .card-top::before {
+    bottom: -6px;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+  }
+  main .swatch .card-top::after {
+    bottom: -6px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+  }
+  main .swatch .card-behind-bottom {
+    bottom: 44px;
+  }
+  main .swatch .card-behind-bottom span {
+    top: -52px;
+  }
+  main .swatch .card-bottom {
+    margin: 0 0 25px;
+  }
+  main .swatch .card-bottom span {
+    top: -52px;
+  }
+  main .swatch .card-bottom::before {
+    top: -6px;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+  }
+  main .swatch .card-bottom::after {
+    top: -6px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+  }
+  main .swatch .swatch-title {
+    font-size: 15px;
+    letter-spacing: 5px;
+  }
+  main .swatch::after {
+    left: 5px;
+    top: 10px;
+    height: 150px;
+    width: 150px;
+  }
+  footer {
+    background: 0/cover no-repeat url(../images/pattern-hills.svg);
+    height: 200px;
+  }
+  footer .social {
+    bottom: 75px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
